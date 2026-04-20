@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Haseeb | TechSolutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007AFF;
+            --dark: #0f172a;
+            --slate: #1e293b;
+            --light: #f8fafc;
+            --accent: #38bdf8;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--slate);
+            background-color: var(--light);
+            scroll-behavior: smooth;
+        }
+
+        /* --- Navigation --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span { color: var(--primary); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--slate);
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover { color: var(--primary); }
+
+        /* --- Hero Section --- */
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark) 0%, #1e1b4b 100%);
+            color: white;
+            padding: 0 10%;
+        }
+
+        #home h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            margin: 0.5rem;
+        }
+
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+
+        .btn-outline { border: 2px solid white; color: white; }
+        .btn-outline:hover { background: white; color: var(--dark); }
+
+        /* --- Sections General --- */
+        section { padding: 80px 10%; max-width: 1400px; margin: 0 auto; }
+        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; color: var(--dark); }
+        .section-desc { text-align: center; color: #64748b; margin-bottom: 3rem; }
+
+        /* --- Grid Layouts (Services & Portfolio) --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        article {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+        }
+
+        article:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+
+        article h3 { margin-bottom: 1rem; color: var(--primary); }
+
+        /* --- Form --- */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background: var(--dark);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        button[type="submit"]:hover { background: var(--primary); }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 4rem 10% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        footer h3, footer h4 { color: white; margin-bottom: 1.2rem; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 0.5rem; }
+        footer a { color: #94a3b8; text-decoration: none; transition: var(--transition); }
+        footer a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul { display: none; } /* Hide nav on mobile for brevity */
+            #home h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Abdul<span>Haseeb</span></h1>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Transform Your Business with Innovative Software</h1>
+        <p>Expertly crafted solutions by Abdul Haseeb, tailored to your unique business needs.</p>
+        <div>
+            <a href="#contact" class="btn btn-primary">Get Started</a>
+            <a href="#services" class="btn btn-outline">Learn More</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p class="section-desc">Comprehensive software solutions to drive your business forward</p>
+        
+        <div class="grid">
+            <article>
+                <h3>Custom Software</h3>
+                <p>Tailored applications built with the latest technologies and best practices.</p>
+            </article>
+
+            <article>
+                <h3>Web Apps</h3>
+                <p>Responsive, scalable web applications that deliver exceptional user experiences.</p>
+            </article>
+
+            <article>
+                <h3>Mobile Dev</h3>
+                <p>Native and cross-platform mobile applications for iOS and Android.</p>
+            </article>
+
+            <article>
+                <h3>Cloud Solutions</h3>
+                <p>Secure and scalable infrastructure to modernize your operations.</p>
+            </article>
+
+            <article>
+                <h3>AI & ML</h3>
+                <p>Intelligent solutions that leverage AI to automate processes.</p>
+            </article>
+
+            <article>
+                <h3>IT Consulting</h3>
+                <p>Expert guidance to help you navigate technology decisions.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Our Work</h2>
+        <p class="section-desc">A glimpse of the successful projects delivered by Abdul Haseeb</p>
+        <div class="grid">
+            <article>
+                <h3>E-Commerce Platform</h3>
+                <p>Handling 100k+ daily transactions.</p>
+                <small><strong>Tech:</strong> React, Node.js, MongoDB</small>
+            </article>
+            <article>
+                <h3>Mobile Banking App</h3>
+                <p>Secure app with biometric authentication.</p>
+                <small><strong>Tech:</strong> React Native, Firebase</small>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>Abdul Haseeb</h3>
+                <p>Innovative software solutions for modern businesses.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li>Web Development</li>
+                    <li>Cloud Solutions</li>
+                    <li>AI & ML</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Follow Me</h4>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Abdul Haseeb | TechSolutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
